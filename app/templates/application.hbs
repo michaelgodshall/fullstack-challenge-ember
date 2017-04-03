@@ -1,5 +1,20 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
+<div>
+  <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+    <div class="container">
+      {{#link-to 'index' class="navbar-brand" }}FullStack Challenge{{/link-to}}
 
-{{outlet}}
+      <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            {{!-- <Link to="/" class="nav-link">Households</Link> --}}
+          </li>
+        </ul>
+        {{!-- <Link to="/households/new" class="btn btn-outline-success">New Household</Link> --}}
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    {{outlet}}
+  </div>
+</div>

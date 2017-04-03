@@ -1,0 +1,13 @@
+<div>
+  <div>
+    <h1>Households</h1>
+  </div>
+  <ul class="list-group">
+    {{#each model as |household|}}
+      <li class="list-group-item list-group-item-action">
+        {{household.address}}
+      </li>
+    {{/each}}
+  </ul>
+</div>
+{{outlet}}
