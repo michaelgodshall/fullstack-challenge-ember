@@ -1,1 +1,26 @@
-{{household-header household=model}}
+{{household-header household=model.household}}
+
+<div class="mb-5">
+  <div class="btn-toolbar justify-content-between mb-2" role="toolbar">
+    <h3>People</h3>
+  </div>
+  <div class="card-columns">
+    {{#each model.persons as |person|}}
+    <div class="card">
+      <div class="card-block">
+        <h5 class="card-title">{{person.fullName}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{person.email}}</h6>
+        <p class="card-text">{{person.age}} year old {{person.genderDisplay}}</p>
+      </div>
+    </div>
+    {{/each}}
+    <div class="card text-center">
+      <div class="card-block">
+        <h5 class="card-title">New Person</h5>
+        {{#link-to 'index' class="btn btn-primary"}}
+          Add (TODO)
+        {{/link-to}}
+      </div>
+    </div>
+  </div>
+</div>
