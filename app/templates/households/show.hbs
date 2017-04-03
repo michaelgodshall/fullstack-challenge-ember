@@ -24,3 +24,28 @@
     </div>
   </div>
 </div>
+
+<div>
+  <div class="btn-toolbar justify-content-between mb-2" role="toolbar">
+    <h3>Vehicles</h3>
+  </div>
+  <div class="card-columns">
+    {{#each model.vehicles as |vehicle|}}
+    <div class="card">
+      <div class="card-block">
+        <h5 class="card-title">{{vehicle.year}} {{vehicle.make}} {{vehicle.model}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{vehicle.person.fullName}}</h6>
+        <p class="card-text">License Plate: {{vehicle.license_plate}}</p>
+      </div>
+    </div>
+    {{/each}}
+    <div class="card text-center">
+      <div class="card-block">
+        <h5 class="card-title">New Vehicle</h5>
+        {{#link-to 'index' class="btn btn-primary"}}
+          Add (TODO)
+        {{/link-to}}
+      </div>
+    </div>
+  </div>
+</div>
