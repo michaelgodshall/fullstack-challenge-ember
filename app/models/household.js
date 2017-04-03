@@ -10,6 +10,8 @@ export default DS.Model.extend({
   is_completed: DS.attr(),
   completed_at: DS.attr('date'),
   created_at: DS.attr('date'),
+  persons: DS.hasMany('person'),
+  vehicles: DS.hasMany('vehicle'),
 
   fullAddress: Ember.computed('address', 'city', 'state', 'zip', function() {
     return `${this.get('address')}, ${this.get('city')}, ${this.get('state')} ${this.get('zip')}`;
