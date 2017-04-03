@@ -7,7 +7,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('households', function() {});
+  this.route('households', function() {
+    this.route('show', { path: '/:household_id' });
+  });
 });
 
 export default Router;

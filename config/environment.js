@@ -20,6 +20,7 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+      API_NAMESPACE: 'api'
     }
   };
 
@@ -29,6 +30,8 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.API_HOST = 'http://127.0.0.1:8000';
+    ENV.APP.API_TOKEN = '48a380a2d7e40fff3c1aa4be553514028065e28e';
   }
 
   if (environment === 'test') {
@@ -43,7 +46,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.APP.API_HOST = 'https://fullstack-challenge-backend.herokuapp.com';
+    ENV.APP.API_TOKEN = '75170349a6970b64fe1f511210e0adc6dfa162df';
   }
 
   return ENV;

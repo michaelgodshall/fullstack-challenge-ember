@@ -5,7 +5,7 @@
   <ul class="list-group">
     {{#each model as |household|}}
       <li class="list-group-item list-group-item-action">
-        {{household.address}}
+        {{#link-to 'households.show' household.id}}{{household.fullAddress}}{{/link-to}}
       </li>
     {{/each}}
   </ul>
