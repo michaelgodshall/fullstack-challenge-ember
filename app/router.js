@@ -12,6 +12,10 @@ Router.map(function() {
       this.route('persons', function() {
         this.route('new');
       });
+
+      this.route('vehicles', function() {
+        this.route('new');
+      });
     });
     this.route('new');
   });

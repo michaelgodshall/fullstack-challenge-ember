@@ -1,0 +1,53 @@
+<h3>New Vehicle</h3>
+
+<form {{action 'create' on="submit"}}>
+  <div class="form-group {{if model.errors.year 'has-danger'}}">
+    <label for="year" class="form-control-label">Year</label>
+    {{input type="number" name="year" class="form-control" value=model.year}}
+    {{#each model.errors.year as |error|}}
+      <span class="form-control-feedback">{{error.message}}</span>
+    {{/each}}
+  </div>
+  <div class="form-group {{if model.errors.make 'has-danger'}}">
+    <label for="make" class="form-control-label">Make</label>
+    {{input type="text" name="make" class="form-control" value=model.make}}
+    {{#each model.errors.make as |error|}}
+      <span class="form-control-feedback">{{error.message}}</span>
+    {{/each}}
+  </div>
+  <div class="form-group {{if model.errors.model 'has-danger'}}">
+    <label for="model" class="form-control-label">Model</label>
+    {{input type="text" name="model" class="form-control" value=model.model}}
+    {{#each model.errors.model as |error|}}
+      <span class="form-control-feedback">{{error.message}}</span>
+    {{/each}}
+  </div>
+  <div class="form-group {{if model.errors.license_plate 'has-danger'}}">
+    <label for="license_plate" class="form-control-label">License plate</label>
+    {{input type="text" name="license_plate" class="form-control" value=model.license_plate}}
+    {{#each model.errors.license_plate as |error|}}
+      <span class="form-control-feedback">{{error.message}}</span>
+    {{/each}}
+  </div>
+  <div class="form-group {{if model.errors.person 'has-danger'}}">
+    <label for="person" class="form-control-label">Person</label>
+    <select onchange={{action 'selectPerson' value="target.value"}} class="form-control">
+      <option></option>
+      {{#each model.household.persons as |person|}}
+        <option value={{person.id}}>{{person.fullName}}</option>
+      {{/each}}
+    </select>
+    {{#each model.errors.person as |error|}}
+      <span class="form-control-feedback">{{error.message}}</span>
+    {{/each}}
+  </div>
+  <div class="btn-toolbar justify-content-between" role="toolbar">
+    <div>
+      <button type="submit" class="btn btn-primary mr-2" role="button">Save</button>
+      {{!-- <a href="#" class="btn btn-secondary">Save and add person</a> --}}
+    </div>
+    <div>
+      {{#link-to 'households.show' model.household class="btn btn-secondary"}}Cancel{{/link-to}}
+    </div>
+  </div>
+</form>
