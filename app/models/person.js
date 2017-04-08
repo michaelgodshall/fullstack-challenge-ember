@@ -1,6 +1,11 @@
 import DS from 'ember-data';
 import Ember from 'ember';
 
+const SelectOption = Ember.Object.extend({
+  value: null,
+  display: null
+})
+
 export default DS.Model.extend({
   first_name: DS.attr(),
   last_name: DS.attr(),
@@ -14,12 +19,17 @@ export default DS.Model.extend({
     return `${this.get('first_name')} ${this.get('last_name')}`;
   }),
 
-  genderDisplay: Ember.computed('gender', function () {
+  genderDisplay: Ember.computed('gender', 'genderOptions', function () {
     const gender = this.get('gender');
-    if (gender === 'f') {
-      return 'female';
-    } else if (gender === 'm') {
-      return 'male';
+    const genderOptions = this.get('genderOptions');
+    if (gender) {
+      return genderOptions.findBy('value', gender).display;
     }
-  })
+    return '';
+  }),
+
+  genderOptions: [
+    SelectOption.create({value: 'f', display: 'Female'}),
+    SelectOption.create({value: 'm', display: 'Male'})
+  ]
 });
